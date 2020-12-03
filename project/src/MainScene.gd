@@ -1,6 +1,6 @@
 extends Control
 
-export var SOLUTION := "6543"
+export var SOLUTION := "1264"
 
 onready var _code_edit := $CodeEntryBox/HBoxContainer/CodeEdit
 onready var _buttons = [
