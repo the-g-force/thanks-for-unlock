@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Nerko_One/NerkoOne-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
@@ -38,6 +42,47 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Success"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_disable_input"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CodeEntryBox:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SuccessLabel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 33.5, -50.0373 ), Vector2( 33.5, 264.458 ) ]
 }
 
 [node name="MainScene" type="Control"]
@@ -117,7 +162,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SuccessLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -266.5
+margin_top = -50.0373
+margin_right = 266.5
+margin_bottom = 8.96274
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 5
+text = "Thank you, Uncle Stefan and Aunt Adriel!"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Incorrect = SubResource( 2 )
+anims/Success = SubResource( 4 )
 [connection signal="pressed" from="CodeEntryBox/ButtonBox/SubmitButton" to="." method="_on_SubmitButton_pressed"]
 [connection signal="pressed" from="CodeEntryBox/ButtonBox/ClearButton" to="." method="_on_ClearButton_pressed"]

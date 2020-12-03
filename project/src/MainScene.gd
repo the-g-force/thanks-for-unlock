@@ -15,7 +15,7 @@ func _on_ClearButton_pressed():
 
 func _on_SubmitButton_pressed():
 	if _code_edit.text == SOLUTION:
-		print("Correct")
+		_animation_player.play("Success")
 	else:
 		_animation_player.play("Incorrect")
 
