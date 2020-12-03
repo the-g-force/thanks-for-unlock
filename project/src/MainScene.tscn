@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/MainScene.gd" type="Script" id=1]
+
+[node name="MainScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.0
+margin_top = -24.0
+margin_right = 51.0
+margin_bottom = 24.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 105.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 19.0
+text = "Code: "
+
+[node name="CodeEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 102.0
+margin_bottom = 24.0
+max_length = 4
+
+[node name="ButtonBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 105.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubmitButton" type="Button" parent="VBoxContainer/ButtonBox"]
+margin_right = 57.0
+margin_bottom = 20.0
+text = "Submit"
+
+[node name="ClearButton" type="Button" parent="VBoxContainer/ButtonBox"]
+margin_left = 61.0
+margin_right = 105.0
+margin_bottom = 20.0
+text = "Clear"
+[connection signal="pressed" from="VBoxContainer/ButtonBox/SubmitButton" to="." method="_on_SubmitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonBox/ClearButton" to="." method="_on_ClearButton_pressed"]
