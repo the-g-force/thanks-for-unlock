@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Thanks-for-Escape"
+config/name="Thanks-for-Unlock"
 run/main_scene="res://src/MainScene.tscn"
 config/icon="res://icon.png"
 
