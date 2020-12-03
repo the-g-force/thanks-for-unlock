@@ -19,10 +19,6 @@ config/name="Thanks-for-Escape"
 run/main_scene="res://src/MainScene.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Gamestats="*res://src/Gamestats.gd"
-
 [display]
 
 window/size/width=600
